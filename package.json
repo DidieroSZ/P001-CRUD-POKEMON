@@ -1,0 +1,18 @@
+{
+  "name": "p001-crud-pokemon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "web-dev-server --node-resolve --open --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "lit-element": "^4.2.1",
+    "lucide": "^0.545.0"
+  }
+}

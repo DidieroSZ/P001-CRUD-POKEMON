@@ -1,0 +1,5 @@
+# ARCHIVO GIT IGNORE
+
+#DEPENDENCIAS
+node_modules/
+package-lock.json
