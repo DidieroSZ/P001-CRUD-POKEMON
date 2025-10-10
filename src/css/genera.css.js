@@ -1,3 +1,6 @@
+import { css } from "lit-element";
+
+export default css`
 
 *{
     margin: 0;
@@ -5,7 +8,7 @@
     box-sizing: border-box;
 }
 
-:root{
+:host{
     --Gris1: #f8f9fa;
     --Gris2: #dee2e6;
     --Negro: #232323;
@@ -32,7 +35,6 @@
     flex-direction: column;
 }
 
-
 .btn-general{
     background-color: var(--Gris2);
     color: var(--Negro);
@@ -41,5 +43,5 @@
 .btn-active{
     background-color: var(--Negro);
     color: var(--Gris2);
-}   
-
+}  
+`;

@@ -14,5 +14,8 @@
     "bootstrap": "^5.3.8",
     "lit-element": "^4.2.1",
     "lucide": "^0.545.0"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.4.6"
   }
 }
