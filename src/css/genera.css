@@ -1,0 +1,44 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --Gris1: #f8f9fa;
+    --Gris2: #dee2e6;
+    --Negro: #232323;
+    --PaddingSections: 2rem;
+    --PaddingButtons: 0.5rem;
+}
+.general--sections{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.d-flexx{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.d-row{
+    flex-direction: row;
+}
+.d-col{
+    flex-direction: column;
+}
+
+
+.btn-general{
+    background-color: var(--Gris2);
+    color: var(--Negro);
+    transition: ease-out 0.4s;
+}   
+.btn-active{
+    background-color: var(--Negro);
+    color: var(--Gris2);
+}   
