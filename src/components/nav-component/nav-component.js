@@ -29,15 +29,7 @@ export class NavComponent extends LitElement {
                 </button>
                 <button type="button" class="btn-general btn-nav d-flexx d-col">
                     <i data-lucide="card-sim"></i>
-                    <small>READ</small>
-                </button>
-                <button type="button" class="btn-general btn-nav d-flexx d-col">
-                    <i data-lucide="card-sim"></i>
-                    <small>CREATE</small>
-                </button>
-                <button type="button" class="btn-general btn-nav d-flexx d-col">
-                    <i data-lucide="card-sim"></i>
-                    <small>DELETE</small>
+                    <small>Nuevo</small>
                 </button>
             </nav>
         `;

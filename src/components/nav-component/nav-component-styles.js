@@ -3,19 +3,22 @@ import { css } from "lit-element";
 export default css`
 .nav--container{
     width: fit-content;
-    padding: var(--PaddingButtons);
-    gap: var(--PaddingButtons);
-    border-radius: var(--PaddingButtons);
-    border: solid 1px var(--Gris2);
+    padding: 1.5rem;
+    gap: 1rem;
+    border-radius: 2rem;
+    margin: 0 auto;
 }
     .btn-nav{
-        width: 4rem;
+        width: fit-content;
         height: auto;
         min-height: 2rem;
-        aspect-ratio: 1/1;
-        padding: var(--PaddingButtons);
+        text-transform: uppercase;
+        padding: 1rem 1.5rem;
         border: none;
-        border-radius: var(--PaddingButtons);
+        border-radius: 2rem;
         cursor: pointer;
+    }
+    .btn-nav small{
+        font-size: 1rem;
     }
 `;
