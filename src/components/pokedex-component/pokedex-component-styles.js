@@ -21,10 +21,6 @@ export default css`
     }
     tr {
       overflow: hidden;
-      /* border-radius: 1rem;
-      box-shadow: 2px 2px 5px var(--Gris2);
-      padding: 0.5rem 1rem;
-      display: table-row; */
     }
       tr:hover {
         background-color: var(--Gris2);

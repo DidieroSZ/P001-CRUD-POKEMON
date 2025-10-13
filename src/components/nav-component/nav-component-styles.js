@@ -9,16 +9,12 @@ export default css`
     margin: 0 auto;
 }
     .btn-nav{
-        width: fit-content;
-        height: auto;
-        min-height: 2rem;
-        text-transform: uppercase;
-        padding: 1rem 1.5rem;
-        border: none;
-        border-radius: 2rem;
-        cursor: pointer;
+        
     }
-    .btn-nav small{
-        font-size: 1rem;
-    }
+        .btn-nav:hover{
+            opacity: 0.8;
+        }
+        .btn-nav small{
+            font-size: 1rem;
+        }
 `;

@@ -41,4 +41,7 @@
 .btn-active{
     background-color: var(--Negro);
     color: var(--Gris2);
+    grid-template-columns: repeat(2, 1fr);
 }   
+
+
