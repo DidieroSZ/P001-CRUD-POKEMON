@@ -41,10 +41,9 @@ export class MainComponent extends LitElement {
         switch (this.pageLoc) {
             case 'party':
             return html`<party-component></party-component>`;
+            
             case 'pokedex':
             return html`<pokedex-component></pokedex-component>`;
-            default:
-            return html`<new-component></new-component>`;
         }
     }
 }

@@ -1,7 +1,16 @@
 import { css } from "lit-element";
 
 export default css`
-  h2{
+
+.list--container{
+    width: 100%;
+    height: auto;
+    padding: var(--PaddingSections);
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr); */
+}
+
+h2{
     text-align: center;
   }
   table {
@@ -35,7 +44,7 @@ export default css`
       }
 
     .btn-edit{
-      border: none;
+
       padding: 1rem;
       aspect-ratio: 1 / 1;
       border-radius: 50%;
@@ -44,7 +53,7 @@ export default css`
       color: white;
     }
     .btn-delete{
-      border: none;
+    
       padding: 1rem;
       aspect-ratio: 1 / 1;
       border-radius: 50%;
@@ -53,4 +62,5 @@ export default css`
       color: white;
 
     }
+    
 `;

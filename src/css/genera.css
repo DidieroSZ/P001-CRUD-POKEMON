@@ -45,3 +45,11 @@
 }   
 
 
+.list--container{
+    width: 100%;
+    height: auto;
+    padding: var(--PaddingSections);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+    

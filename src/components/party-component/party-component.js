@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit-element";
 import partyStyles from "./party-component-styles.js"; // <---- NAV STYLES
 import generalStyles from "../../css/genera.css.js"; // <---- GLOBAL STYLES
+import "../list-component/list-component.js" // <---- LIST COMPONENT 
 
 export class PartyComponent extends LitElement {
 
@@ -32,24 +33,29 @@ export class PartyComponent extends LitElement {
         return html`
             <form class="d-flexx d-col form" @submit=${this._validateForm}>
                 <input type="text" class="input-general" id="nombre" placeholder="Nombre">
-                <input type="number" class="input-general" id="peso" placeholder="Peso" step="0.1">
-                <input type="number" class="input-general" id="altura" placeholder="Altura" step="0.1">
+                <input type="number" class="input-general" id="peso" placeholder="Peso (kg)" step="0.1">
+                <input type="number" class="input-general" id="altura" placeholder="Altura (m)" step="0.1">
                 
                 ${this._multipleTypes()}
 
                 <button type="submit" class="btn-general d-flexx d-col">Guardar</button>
             </form>
+            <br>
+            <list-component></list-component>
         `;
     }
 
     _multipleTypes(){
         return html`
+        <br>
+        <p>Máximo 2 tipos por pokemon:</p>
         <div class="tipos--container">
+        
             ${this.arrayTypes.map((nombre) => {
                 return html` 
                     <div class="">
-                    <input type="checkbox" id="${nombre}" value="${nombre}" @change=${this._handleCheckboxChange}>
-                    <label for="${nombre}">${nombre}</label>
+                        <input type="checkbox" id="${nombre}" value="${nombre}" @change=${this._handleCheckboxChange}>
+                        <label for="${nombre}">${nombre}</label>
                      </div>
                 `;
             })}
@@ -65,11 +71,16 @@ export class PartyComponent extends LitElement {
         const altura = parseFloat(this.renderRoot.querySelector('#altura').value);
 
         const long = this.tiposSeleccionados.length;
-        if ((!nombre) || (isNaN(peso)) || (isNaN(altura)) || (long === 0)) {
+        if ((!nombre) || (isNaN(peso)) || (isNaN(altura)) || (long === 0) || (long >= 3)) {
             alert('Por favor completa todos los campos correctamente');
             return;
         }
         this._setPokem(nombre, peso, altura, this.tiposSeleccionados);
+        this._resetForm();
+    }
+
+    _resetForm(){
+        window.location.reload();
     }
 
     _handleCheckboxChange(e) {

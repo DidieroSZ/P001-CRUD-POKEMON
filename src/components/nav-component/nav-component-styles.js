@@ -9,7 +9,7 @@ export default css`
     margin: 0 auto;
 }
     .btn-nav{
-        
+        gap: var(--PaddingButtons);
     }
         .btn-nav:hover{
             opacity: 0.8;
