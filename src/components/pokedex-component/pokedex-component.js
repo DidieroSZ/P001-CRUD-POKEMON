@@ -3,25 +3,28 @@ import pokedexStyles from "./pokedex-component-styles.js"; // <---- NAV STYLES
 import generalStyles from "../../css/genera.css.js"; // <---- GLOBAL STYLES
 
 export class PokeComponent extends LitElement {
+
+  //USO DE DOOM GLOBAL (MOMENTANEO)
+  createRenderRoot() {
+    return this;
+  }
+
   static properties = {
     pokemones: { type: Array },
     localespokemones: { type: Array },
-    loading: { type: Boolean },
   };
 
   constructor() {
     super();
     this.pokemones = [];
     this.localespokemones = [];
-    this.loading = false;
   }
 
   async firstUpdated() {
     try {
       const res = await fetch(
-        "https://pokeapi.co/api/v2/pokemon?offset=0&limit=400"
+        "https://pokeapi.co/api/v2/pokemon?offset=0&limit=40"
       );
-      /* const res = ''; */
       const data = await res.json();
 
       const detalles = await Promise.all(
@@ -34,116 +37,63 @@ export class PokeComponent extends LitElement {
     }
   }
 
-  static styles = [generalStyles, pokedexStyles];
+  /* static styles = [generalStyles, pokedexStyles]; */
 
   render() {
-    const deletedPokemones = this._getLocal("deleted") || [];
     return html`
-      <section class="pokedex--container">
+      <section class="general--sections list--container api--container">
         <h2>Lista de Pokémones:</h2>
         <br />
-        <table class="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Imagen</th>
-              <th>Nombre</th>
-              <th>Tipo(s)</th>
-              <th>Peso</th>
-              <th>Altura</th>
-              <th style="width: 10%">Eliminar</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${this.pokemones
-              .filter((poke) => !deletedPokemones.includes(poke.name))
-              .map((poke) => this._templateTable(poke))}
-          </tbody>
-        </table>
+        <div class="container--list d-flexx d-row">
+          ${this._templateTable()}
+        </div>    
       </section>
     `;
   }
 
-  _templateTable(poke) {
-    const id = poke.id;
-    const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
-    const nombre = poke.name;
-    const tipos = poke.types;
-    let peso = poke.weight * 0.1;
-    peso = peso.toFixed(1);
-    let altura = poke.height * 0.1;
-    altura = altura.toFixed(1);
-    return html`
-      <tr>
-        <td>${id}</td>
-        <td><img alt="${poke.name}" src="${img}" /></td>
-        <td>${nombre}</td>
-        <td>
-          ${tipos.map((ti, i) => {
-            return html` <p>${ti.type.name}</p> `;
-          })}
-        </td>
-        <td>${peso} kg</td>
-        <td>${altura} m</td>
-        <td>
-          <button
-            @click=${this._deletePoke}
-            class="btn-general btn-delete"
-            data-id="${nombre}"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-trash2-icon lucide-trash-2"
-            >
-              <path d="M10 11v6" />
-              <path d="M14 11v6" />
-              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
-              <path d="M3 6h18" />
-              <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-            </svg>
-          </button>
-        </td>
-      </tr>
-    `;
-  }
-
-  /* ---- FUNCIONES BTNS ---- */
-  _deletePoke(e) {
-    const btn = e.target.closest("button");
-    const idPoke = btn.dataset.id;
-    this._setLocal("deleted", idPoke);
-
-    this.requestUpdate();
-  }
-  /* ---- FUNCIONES BTNS ---- */
-
-  /* ---- FUNCIONES LocalStorage ---- */
-  _setLocal(nombre, info) {
-    let infoArray = [];
-    const inf = this._getLocal(nombre);
-    console.log(inf);
-    if (inf) {
-      infoArray = inf;
+  _templateTable() {
+    if (this.pokemones && this.pokemones.length > 0) {
+      console.log(this.pokemones)
+      return this.pokemones.map((p, i) =>
+              html`
+                <div class="card--list d-flexx d-col">
+                    <span class="types">
+                            <span class="d-flexx">#${p.id}</span>
+                           ${p.types.map(ti => html`<small>${ti.type.name}</small>`)}
+                        </span>
+                    <figure class="">
+                    <!-- <img alt="${p.name}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png"> -->
+                    <!-- <img alt="${p.name}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${p.id}.png"> -->
+                    <!-- <img alt="${p.name}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${p.id}.gif"> -->
+                        <img alt="${p.name}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${p.id}.png">
+                    </figure>
+                    <span class="name">
+                        <p class="d-flexx d-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dot-icon lucide-dot"><circle cx="12.1" cy="12.1" r="1"/></svg>
+                        ${p.name}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dot-icon lucide-dot"><circle cx="12.1" cy="12.1" r="1"/></svg>
+                        </p>
+                    </span>
+                    
+                    <span class="metrics">
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-weight-icon lucide-weight"><circle cx="12" cy="5" r="3"/><path d="M6.5 8a2 2 0 0 0-1.905 1.46L2.1 18.5A2 2 0 0 0 4 21h16a2 2 0 0 0 1.925-2.54L19.4 9.5A2 2 0 0 0 17.48 8Z"/></svg>
+                            ${ (p.weight * 0.1).toFixed(1) } kg
+                        </p>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ruler-icon lucide-ruler"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>
+                            ${ (p.height * 0.1).toFixed(1) } m
+                        </p>
+                    </span>
+                </div>
+            `
+      );
+    } else {
+      return html`
+        <p colspan="6">No hay pokemones guardados.</p>
+      `;
     }
-
-    infoArray.push(info);
-    localStorage.setItem(nombre, JSON.stringify(infoArray));
-    console.log(infoArray);
-    return;
   }
 
-  _getLocal(nombre) {
-    const informacion = localStorage.getItem(nombre);
-    return informacion ? JSON.parse(informacion) : null;
-  }
-  /* ---- FUNCIONES LocalStorage ---- */
 }
 customElements.define('pokedex-component', PokeComponent);
