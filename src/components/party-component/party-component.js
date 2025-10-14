@@ -2,6 +2,7 @@ import { LitElement, html, css } from "lit-element";
 import partyStyles from "./party-component-styles.js"; // <---- NAV STYLES
 import generalStyles from "../../css/genera.css.js"; // <---- GLOBAL STYLES
 import "../list-component/list-component.js" // <---- LIST COMPONENT 
+import { getLocal, setLocal, reloadPage } from "../../utils/common.js";
 
 export class PartyComponent extends LitElement {
 
@@ -70,13 +71,13 @@ export class PartyComponent extends LitElement {
             },
             Fighting: {
                 name: 'Fighting',
-                color: '#69f',
-                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind-icon lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>',
+                color: '#f33',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell-electric-icon lucide-bell-electric"><path d="M18.518 17.347A7 7 0 0 1 14 19"/><path d="M18.8 4A11 11 0 0 1 20 9"/><path d="M9 9h.01"/><circle cx="20" cy="16" r="2"/><circle cx="9" cy="9" r="7"/><rect x="4" y="16" width="10" height="6" rx="2"/></svg>',
             },
             Dark: {
                 name: 'Dark',
-                color: 'ssss',
-                icon: 'ssss',
+                color: '#333',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon-star-icon lucide-moon-star"><path d="M18 5h4"/><path d="M20 3v4"/><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>',
             },
             Steel: {
                 name: 'Steel',
@@ -85,38 +86,38 @@ export class PartyComponent extends LitElement {
             },
             Psychic: {
                 name: 'Psychic',
-                color: 'ssss',
-                icon: 'ssss',
+                color: '#f69',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shell-icon lucide-shell"><path d="M14 11a2 2 0 1 1-4 0 4 4 0 0 1 8 0 6 6 0 0 1-12 0 8 8 0 0 1 16 0 10 10 0 1 1-20 0 11.93 11.93 0 0 1 2.42-7.22 2 2 0 1 1 3.16 2.44"/></svg>',
             },
             Ghost: {
                 name: 'Ghost',
-                color: 'ssss',
-                icon: 'ssss',
+                color: '#66c',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ghost-icon lucide-ghost"><path d="M9 10h.01"/><path d="M15 10h.01"/><path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"/></svg>',
             },
             Poison: {
                 name: 'Poison',
-                color: 'ssss',
-                icon: 'ssss',
+                color: '#a6c',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-syringe-icon lucide-syringe"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg>',
             },
             Flying: {
                 name: 'Flying',
-                color: 'ssss',
-                icon: 'ssss',
+                color: '#69f',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind-icon lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>',
             },
             Fairy: {
                 name: 'Fairy',
-                color: 'ssss',
-                icon: 'ssss',
+                color: '#f9c',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wand-icon lucide-wand"><path d="M15 4V2"/><path d="M15 16v-2"/><path d="M8 9h2"/><path d="M20 9h2"/><path d="M17.8 11.8 19 13"/><path d="M15 9h.01"/><path d="M17.8 6.2 19 5"/><path d="m3 21 9-9"/><path d="M12.2 6.2 11 5"/></svg>',
             },
             Ice: {
                 name: 'Ice',
-                color: 'ssss',
-                icon: 'ssss',
+                color: '#9ff',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake-icon lucide-snowflake"><path d="m10 20-1.25-2.5L6 18"/><path d="M10 4 8.75 6.5 6 6"/><path d="m14 20 1.25-2.5L18 18"/><path d="m14 4 1.25 2.5L18 6"/><path d="m17 21-3-6h-4"/><path d="m17 3-3 6 1.5 3"/><path d="M2 12h6.5L10 9"/><path d="m20 10-1.5 2 1.5 2"/><path d="M22 12h-6.5L14 15"/><path d="m4 10 1.5 2L4 14"/><path d="m7 21 3-6-1.5-3"/><path d="m7 3 3 6h4"/></svg>',
             },
             Dragon: {
                 name: 'Dragon',
-                color: 'ssss',
-                icon: 'ssss',
+                color: '#7038f8',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-origami-icon lucide-origami"><path d="M12 12V4a1 1 0 0 1 1-1h6.297a1 1 0 0 1 .651 1.759l-4.696 4.025"/><path d="m12 21-7.414-7.414A2 2 0 0 1 4 12.172V6.415a1.002 1.002 0 0 1 1.707-.707L20 20.009"/><path d="m12.214 3.381 8.414 14.966a1 1 0 0 1-.167 1.199l-1.168 1.163a1 1 0 0 1-.706.291H6.351a1 1 0 0 1-.625-.219L3.25 18.8a1 1 0 0 1 .631-1.781l4.165.027"/></svg>',
             },
         };
         this.arrayTypes = [
@@ -136,7 +137,7 @@ export class PartyComponent extends LitElement {
         return html`
             <form class="general--sections form--container d-flexx d-row" @submit=${this._validateForm}>
                 <div class="form--sides left--form d-flexx d-col">
-                <p>Agregar un nuevo Pokemon:</p>
+                    <p>Agregar un nuevo Pokemon:</p>
                     <input type="text" class="input-general" id="nombre" placeholder="Nombre">
                     <input type="number" class="input-general" id="peso" placeholder="Peso (kg)" step="0.1">
                     <input type="number" class="input-general" id="altura" placeholder="Altura (m)" step="0.1">
@@ -151,7 +152,6 @@ export class PartyComponent extends LitElement {
         `;
     }
 
-    
 
     /* ---- FUNCIONES FORMS ---- */
         _validateForm(e){
@@ -161,12 +161,12 @@ export class PartyComponent extends LitElement {
             const altura = parseFloat(this.renderRoot.querySelector('#altura').value);
 
             const long = this.tiposSeleccionados.length;
-            if ((!nombre) || (isNaN(peso)) || (isNaN(altura)) || (long === 0) || (long >= 3)) {
+            if ((!nombre) || (isNaN(peso)) || (isNaN(altura)) || (long === 0) || (long >= 3) || (altura < 0) || (peso < 0)) {
                 this._alertForm('error');
                 return;
             }
             this._setPokem(nombre, peso, altura, this.tiposSeleccionados);
-            this._resetForm();
+            reloadPage();
         }
         _alertForm(t){
                 this.dispatchEvent(
@@ -176,9 +176,6 @@ export class PartyComponent extends LitElement {
                     detail: { type: t }
                 })
             );
-        }
-        _resetForm(){
-            window.location.reload();
         }
     /* ---- FUNCIONES FORMS ---- */
 
@@ -211,10 +208,10 @@ export class PartyComponent extends LitElement {
 
 
     /* ---- FUNCIONES LocalStorage ---- */
-        _setPokem(n, p, a, ts){ 1302
+        _setPokem(n, p, a, ts){ 
             let arrayPokemones = [];
             const id = Math.floor(Math.random() * (1302 - 1 + 1)) + 1;
-            const pokemones = this._getLocal('pokemones');
+            const pokemones = getLocal('pokemones');
             if (pokemones) {
                 arrayPokemones = pokemones;
             }
@@ -226,11 +223,7 @@ export class PartyComponent extends LitElement {
                 tipos: ts,
             };
             arrayPokemones.push(this.pokemonesObject);
-            localStorage.setItem('pokemones', JSON.stringify(arrayPokemones));
-        }
-        _getLocal(nombre) {
-            const informacion = localStorage.getItem(nombre);
-            return informacion ? JSON.parse(informacion) : null;
+            setLocal('pokemones', arrayPokemones);
         }
     /* ---- FUNCIONES LocalStorage ---- */
 }

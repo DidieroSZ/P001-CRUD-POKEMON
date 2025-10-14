@@ -1,68 +1,349 @@
 import { css } from "lit-element";
 
 export default css`
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 
-        font-family: "Open Sans", sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Figtree", sans-serif;
     font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal;
-    font-variation-settings:
-        "wdth" 100;
-    }
+}
 
-    :host{
-        --Gris1: #f8f9fa;
-        --Gris2: #dee2e6;
-        --Negro: #232323;
-        --PaddingSections: 2rem;
-        --PaddingButtons: 0.5rem;
+:root {
+    --Gris1: #f8f9fa;
+    --Gris2: #dee2e6;
+    --Negro: #232323;
+    --PaddingSections: 2rem;
+    --PaddingButtons: 0.5rem;
+    --RadiusSections: 2rem;
+    --RadiusButtons: 1rem;
+}
+
+
+.general--sections {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--RadiusSections);
+    padding: var(--PaddingSections);
+}
+
+.d-flexx {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.d-row {
+    flex-direction: row;
+}
+
+.d-col {
+    flex-direction: column;
+}
+
+
+.btn-general {
+    background-color: var(--Gris2);
+    color: var(--Negro);
+    transition: ease-out 0.4s;
+    width: fit-content;
+    height: auto;
+    min-height: 2rem;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    border: solid 1px var(--Gris2);
+    border-radius: var(--RadiusButtons);
+    cursor: pointer;
+}
+
+.btn-general:hover {
+    border: solid 1px var(--Gris2);
+    background-color: var(--Negro);
+    color: white;
+}
+
+.btn-active {
+    background-color: var(--Negro);
+    color: var(--Gris2);
+}
+
+
+/* NAV STYLES  */
+.nav--container {
+    width: fit-content;
+    padding: 1.5rem;
+    gap: 0;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+    .btn-nav {
+        border: none;
+        border-radius: 0px;
+        gap: var(--PaddingButtons);
     }
-    .general--sections{
+        .btn-nav:hover {
+            border: none;
+            opacity: 0.8;
+        }
+/* NAV STYLES  */
+
+
+/* PARTY STYLES */
+.form--container{
+    border: solid 1px var(--Gris2);
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: start;
+}   
+    .form--sides{
+        width: 40%;
+        height: fit-content;
+        flex-grow: 1;
+        gap: var(--PaddingButtons);
+        justify-content: start;
+        align-items: start;
+    }
+    .left--form{
+        
+    }
+        .input-general{
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: solid 1px var(--Gris2);
+            border-radius: var(--RadiusButtons);
+        }
+            .input-general:focus{
+                border: solid 1px var(--Gris2);
+            }
+    .rigth--form {
+        
+    }
+        .tipos--container{
+            width: 100%;
+            gap: var(--PaddingButtons);
+            flex-wrap: wrap;
+            
+        }
+            .check--container{
+                display: flex;
+                gap: 3px;
+                width: fit-content;
+                flex-grow: 1;
+                flex-shrink: 1;
+            }
+
+    .form--container > button {
+        width: 100%;
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+/* PARTY STYLES */
+
+
+/* LIST STYLES */
+.list--container {
+    width: 100%;
+    height: auto;
+    padding: var(--PaddingSections);
+    border: solid 1px var(--Gris2);
+}
+    .container--list{
         width: 100%;
         height: auto;
-        overflow: hidden;
-        position: relative;
-        padding: var(--PaddingSections);
+        flex-wrap: wrap;
+        gap: var(--PaddingButtons);
     }
-
-    .d-flexx{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: nowrap;
+    .api--container .card--list{
+        width: 30%;
+        height: 20rem;
     }
-    .d-row{
-        flex-direction: row;
+    .api--container .card--list > figure{
+        display: block;
+        filter: saturate(1.8);
     }
-    .d-col{
-        flex-direction: column;
-    }
-
-    .btn-general{
-        background-color: var(--Gris2);
-        color: var(--Negro);
-        transition: ease-out 0.4s;
-        width: fit-content;
-        height: auto;
-        min-height: 2rem;
-        text-transform: uppercase;
-        padding: 1rem 1.5rem;
-        border: solid 1px var(--Gris2);
-        border-radius: 2rem;
-        cursor: pointer;
-    }   
-        .btn-general:hover{
+        .card--list{
+            width: 30%;
+            height: 25rem;
+            flex-grow: 1;
+            flex-shrink: 1;
+            justify-content: space-between;
+            padding: var(--PaddingButtons);
+            border-radius: var(--RadiusButtons);
             border: solid 1px var(--Gris2);
-            background-color: var(--Negro);
-            color: white;
+            overflow: hidden;
+            gap: var(--PaddingButtons);
         }
-    .btn-active{
-        background-color: var(--Negro);
-        color: var(--Gris2);
-    }  
+            .card--list > figure{
+                width: 100%;
+                min-height: 40%;
+                height: 40%;
+                position: relative;
+                overflow: hidden;
+            }
+                .card--list img{
+                    width: 100%;
+                    height: 100%;
+                    aspect-ratio: 1/1;
+                    object-fit: contain;
+                }
+            .card--list > span{
+                width: 100%;
+                height: fit-content;
+                overflow: hidden;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: var(--PaddingButtons);
+            }
+            span.name{
+                font-size: 1.5em;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            span.types {
+                justify-content: start;
+                font-size: 0.8rem;
+            }
+                span.types > small{
+                    padding: 0.3rem 0.5rem;
+                    border-radius: 0.4rem;
+                    border: solid 1px var(--Gris2);
+                    font-size: 0.8rem;
+                    text-transform: capitalize;
+                }
+                span.types > span{
+                    width: 2rem;
+                    height: 2rem;
+                    aspect-ratio: 1/1;
+                    padding: 0.8rem;
+                    border-radius: 50%;
+                    border: solid 1px var(--Gris2);
+                    background-color: var(--Negro);
+                    color: var(--Gris2);
+                }
+
+            span.metrics {
+                
+            }
+                span.metrics > p{
+                    width: 40%;
+                    flex-grow: 1;
+                    gap: var(--PaddingButtons);
+                    display: flex;
+                    justify-self: center;
+                    align-items: center;
+                    flex-direction: column;
+                    padding: var(--PaddingButtons) 1rem;
+                    border-radius: 0.4rem;
+                    background-color: var(--Negro);
+                    color: var(--Gris2);
+                }
+            span.btns-interact {
+
+            }
+                .btn-card{
+                    width: 30%;
+                    flex-grow: 1;
+                    padding: 0.5rem;
+                    border-radius: 0.4rem;
+                    gap: 0.2rem;
+                    border: solid 2px var(--Gris2);
+                }
+                    .btn-card > svg{
+                        width: 15px;
+                        height: auto;
+                        aspect-ratio: 1/1;
+                    }
+
+
+h2 {
+    text-align: center;
+}
+
+.btn-edit:hover {
+    background-color: rgba(2, 64, 220, 0.587);
+    border: solid 2px blue;
+}
+.btn-delete:hover {
+    background-color: rgba(220, 2, 2, 0.587);
+    border: solid 2px red;
+    color: white;
+}
+/* LIST STYLES */
+
+
+/* MODAL STYLES */
+.modal--container{
+    width: 100%;
+    height: 100%;
+    background-color: #232323a2;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+}
+    .modal{
+        width: 500px;
+        height: auto;
+        background-color: white;
+        border: solid 1px var(--Gris2);
+        padding: var(--PaddingSections);
+        border-radius: var(--RadiusSections);
+        justify-content: start;
+        gap: var(--PaddingSections);
+    }
+        .close{
+            width: 100%;
+        }
+            .close > button{
+                aspect-ratio: 1/1;
+                padding: var(--PaddingButtons);
+                border-radius: 0.3rem;
+                margin: 0;
+                margin-left: auto;
+            }
+        .mensaje--container{
+            
+            width: 100%;
+            height: 80%;
+            gap: var(--PaddingButtons);
+            overflow: hidden;
+            border-radius: var(--PaddingButtons);
+            flex-wrap: wrap;
+        }   
+            .text-msg{
+                width:100%;
+                gap: var(--PaddingButtons);
+                border-radius: 0.3rem;
+                padding: var(--PaddingButtons);
+                color: var(--Negro);
+                flex-grow: 1;
+            }
+            .error--msg{
+                background-color: rgba(220, 2, 2, 0.587);
+                border: solid 2px red;
+                color: white;
+            }
+            .war--msg{
+                background-color: rgba(220, 216, 2, 0.587);
+                border: solid 2px yellow;
+            }
+            .btn-modal{
+                width: 40%;
+                flex-grow: 1;
+            }
+            .btn-eliminar{
+                background-color: red;
+                color: white;
+            }
+/* MODAL STYLES */
 `;

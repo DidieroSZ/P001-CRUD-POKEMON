@@ -38,7 +38,7 @@ export class MainComponent extends LitElement {
             <main class="general--sections" @alert-modal=${this._changeType} @close-modal=${this._closeModal}>
                 <nav-component @page-state=${this._changePage}></nav-component>
 
-                <modal-component .type=${this.type} .mostrar=${this.mostrar} .id=${this.item}></modal-component>
+                <modal-component .type=${this.type} .mostrar=${this.mostrar} .item=${this.item}></modal-component>
 
                 ${this._renderPages()}
             </main>

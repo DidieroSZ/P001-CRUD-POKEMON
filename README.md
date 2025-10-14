@@ -9,7 +9,7 @@ Permite listar, agregar y eliminar Pokémon, además de almacenar datos en `loca
 ```sh
 cd nombre-del-proyecto
 npm install
-npm reun dev
+npm run dev
 ```
 
 ### 1️⃣ Clonar el repositorio
@@ -19,7 +19,7 @@ npm reun dev
 git clone https://github.com/tu-usuario/nombre-del-repositorio.git
 ```
 
-- Clona la rama Develop:
+- Clonar rama develop:
 ```sh
 git checkout -b develop origin/develop
 ```

@@ -148,8 +148,8 @@
 .list--container {
     width: 100%;
     height: auto;
-    padding: var(--PaddingSections);
-    border: solid 1px var(--Gris2);
+    padding: 0;
+    /* border: solid 1px var(--Gris2); */
 }
     .container--list{
         width: 100%;
@@ -212,17 +212,19 @@
                 span.types > small{
                     padding: 0.3rem 0.5rem;
                     border-radius: 0.4rem;
-                    border: solid 1px var(--Gris2);
-                    font-size: 0.8rem;
-                    text-transform: capitalize;
+                    gap: 0.2rem;
+                    color: white ;
                 }
+                    span.types > small > svg{
+                        width: 15px;
+                        height: auto;
+                        aspect-ratio: 1/1;
+                    }
                 span.types > span{
-                    width: 2rem;
-                    height: 2rem;
+                    width: 1.7rem;
+                    height: auto;
                     aspect-ratio: 1/1;
-                    padding: 0.8rem;
                     border-radius: 50%;
-                    border: solid 1px var(--Gris2);
                     background-color: var(--Negro);
                     color: var(--Gris2);
                 }
@@ -309,7 +311,6 @@ h2 {
                 margin-left: auto;
             }
         .mensaje--container{
-            
             width: 100%;
             height: 80%;
             gap: var(--PaddingButtons);
@@ -330,6 +331,20 @@ h2 {
                 border: solid 2px red;
                 color: white;
             }
+            .edit--msg{
+                background-color: rgba(2, 64, 220, 0.59);
+                border: solid 2px blue;
+                color: white;
+            }
+                .form--edit{
+                    width: 100%;
+                }
+                .form--edit > .form--sides {
+                    width: 100%;
+                }
+                .form--container > .error--msg{
+                    display: none;
+                }
             .war--msg{
                 background-color: rgba(220, 216, 2, 0.587);
                 border: solid 2px yellow;
@@ -340,6 +355,10 @@ h2 {
             }
             .btn-eliminar{
                 background-color: red;
+                color: white;
+            }
+            .btn-editar{
+                background-color: blue;
                 color: white;
             }
 /* MODAL STYLES */

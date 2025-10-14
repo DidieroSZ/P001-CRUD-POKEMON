@@ -8,18 +8,15 @@ export class PokeComponent extends LitElement {
   createRenderRoot() {
     return this;
   }
-
   static properties = {
     pokemones: { type: Array },
     localespokemones: { type: Array },
   };
-
   constructor() {
     super();
     this.pokemones = [];
     this.localespokemones = [];
   }
-
   async firstUpdated() {
     try {
       const res = await fetch(
@@ -53,7 +50,6 @@ export class PokeComponent extends LitElement {
 
   _templateTable() {
     if (this.pokemones && this.pokemones.length > 0) {
-      console.log(this.pokemones)
       return this.pokemones.map((p, i) =>
               html`
                 <div class="card--list d-flexx d-col">
