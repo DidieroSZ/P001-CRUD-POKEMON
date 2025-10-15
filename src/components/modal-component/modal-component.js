@@ -1,14 +1,8 @@
 import { LitElement, html, css } from "lit-element";
-import modalStyles from "./modal-component-styles.js"; // <---- NAV STYLES
 import generalStyles from "../../css/genera.css.js"; // <---- GLOBAL STYLES
-import { getLocal, setLocal, reloadPage } from "../../utils/common.js";
+import { getLocal, setLocal, reloadPage } from "../../utils/common.js"; // <---- COMMON FUNCTIONS
 
 export class ModalComponent extends LitElement {
-
-    createRenderRoot() {
-        return this;
-    }
-
     static properties = {
         type: {type: String},
         item: {type: String},
@@ -36,7 +30,7 @@ export class ModalComponent extends LitElement {
 
     }
 
-    /* static styles = [generalStyles, modalStyles]; */
+    static styles = [generalStyles];
 
     render(){
         if (this.mostrar) {
@@ -83,7 +77,7 @@ export class ModalComponent extends LitElement {
 
             this._handleCheckboxChange();
             const long = this.tiposSeleccionados.length;
-            if ((!nombre) || (isNaN(peso)) || (isNaN(altura)) || (long === 0) || (long >= 3) || (altura < 0) || (peso < 0)) {
+            if ((!nombre) || (isNaN(peso)) || (isNaN(altura)) || (long === 0) || (long >= 3) || (altura <= 0) || (peso <= 0)) {
                 alerta.style.display = 'flex';
                 return;
             } 

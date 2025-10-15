@@ -9,11 +9,6 @@ import "../modal-component/modal-component.js" // <---- MODAL COMPONENT
 
 
 export class MainComponent extends LitElement {
-    
-    createRenderRoot() {
-        return this;
-    }
-
     static properties = {
         pageLoc: { type: String },
         type: { type: String },
@@ -31,7 +26,7 @@ export class MainComponent extends LitElement {
 
     }
 
-    /* static styles = [generalStyles, mainStyles]; */
+    static styles = [generalStyles];
 
     render(){
         return html`

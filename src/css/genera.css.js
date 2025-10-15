@@ -10,7 +10,6 @@ export default css`
     font-family: "Figtree", sans-serif;
     font-optical-sizing: auto;
 }
-
 :root {
     --Gris1: #f8f9fa;
     --Gris2: #dee2e6;
@@ -20,8 +19,6 @@ export default css`
     --RadiusSections: 2rem;
     --RadiusButtons: 1rem;
 }
-
-
 .general--sections {
     width: 100%;
     max-width: 800px;
@@ -32,14 +29,12 @@ export default css`
     border-radius: var(--RadiusSections);
     padding: var(--PaddingSections);
 }
-
 .d-flexx {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
 }
-
 .d-row {
     flex-direction: row;
 }
@@ -47,8 +42,6 @@ export default css`
 .d-col {
     flex-direction: column;
 }
-
-
 .btn-general {
     background-color: var(--Gris2);
     color: var(--Negro);
@@ -62,13 +55,11 @@ export default css`
     border-radius: var(--RadiusButtons);
     cursor: pointer;
 }
-
-.btn-general:hover {
-    border: solid 1px var(--Gris2);
-    background-color: var(--Negro);
-    color: white;
-}
-
+    .btn-general:hover {
+        border: solid 1px var(--Gris2);
+        background-color: var(--Negro);
+        color: white;
+    }
 .btn-active {
     background-color: var(--Negro);
     color: var(--Gris2);
@@ -77,21 +68,42 @@ export default css`
 
 /* NAV STYLES  */
 .nav--container {
-    width: fit-content;
+    width: 100%;
     padding: 1.5rem;
     gap: 0;
     margin: 0 auto;
     margin-bottom: 1rem;
+    border: solid 1px var(--Gris2);
+    justify-content: end;
 }
+    .nav--container > figure{
+        height: 100%;
+        width: 10rem;
+        overflow: hidden;
+        margin-right: auto;
+    }
+    .nav--container img{
+        height: 100%;
+        width:  100%;
+        object-fit: contain;
+    }
+    
     .btn-nav {
         border: none;
         border-radius: 0px;
         gap: var(--PaddingButtons);
+        border-radius: var(--PaddingButtons);
     }
         .btn-nav:hover {
             border: none;
             opacity: 0.8;
         }
+    .btn-nav-left{
+        border-radius: var(--PaddingButtons) 0px 0px var(--PaddingButtons);
+    }
+    .btn-nav-rigth{
+         border-radius: 0px var(--PaddingButtons) var(--PaddingButtons) 0px;
+    }
 /* NAV STYLES  */
 
 
@@ -151,8 +163,8 @@ export default css`
 .list--container {
     width: 100%;
     height: auto;
-    padding: var(--PaddingSections);
-    border: solid 1px var(--Gris2);
+    padding: 0;
+    border-radius: 0;
 }
     .container--list{
         width: 100%;
@@ -161,12 +173,7 @@ export default css`
         gap: var(--PaddingButtons);
     }
     .api--container .card--list{
-        width: 30%;
         height: 20rem;
-    }
-    .api--container .card--list > figure{
-        display: block;
-        filter: saturate(1.8);
     }
         .card--list{
             width: 30%;
@@ -179,25 +186,38 @@ export default css`
             border: solid 1px var(--Gris2);
             overflow: hidden;
             gap: var(--PaddingButtons);
+            position: relative;
         }
-            .card--list > figure{
+            .cont--img{
                 width: 100%;
                 min-height: 40%;
                 height: 40%;
                 position: relative;
-                overflow: hidden;
+                z-index: 2;
             }
-                .card--list img{
+                .gradient-decorator{
+                    width: auto;
+                    height: 80%;
+                    aspect-ratio: 1/1;
+                    position: absolute;
+                    z-index: 0;
+                    transform: translate(-50%, -50%);
+                    top: 30%;
+                    left: 50%;
+                    background: #fff;
+                }
+                .cont--img img{
+                    position: relative;
+                    z-index: 4;
                     width: 100%;
                     height: 100%;
-                    aspect-ratio: 1/1;
                     object-fit: contain;
                 }
             .card--list > span{
                 width: 100%;
                 height: fit-content;
                 overflow: hidden;
-
+                z-index: 2;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -207,33 +227,37 @@ export default css`
                 font-size: 1.5em;
                 font-weight: bold;
                 text-transform: uppercase;
+                z-index: 2;
             }
             span.types {
                 justify-content: start;
                 font-size: 0.8rem;
+                z-index: 2;
             }
                 span.types > small{
                     padding: 0.3rem 0.5rem;
                     border-radius: 0.4rem;
-                    border: solid 1px var(--Gris2);
-                    font-size: 0.8rem;
-                    text-transform: capitalize;
+                    gap: 0.2rem;
+                    color: white ;
                 }
+                    span.types > small > svg{
+                        width: 15px;
+                        height: auto;
+                        aspect-ratio: 1/1;
+                    }
                 span.types > span{
-                    width: 2rem;
-                    height: 2rem;
+                    width: fit-content;
+                    height: auto;
+                    padding: 3px;
                     aspect-ratio: 1/1;
-                    padding: 0.8rem;
                     border-radius: 50%;
-                    border: solid 1px var(--Gris2);
                     background-color: var(--Negro);
                     color: var(--Gris2);
                 }
-
-            span.metrics {
-                
+            span.metrics {  
+                z-index: 2;
             }
-                span.metrics > p{
+                span.metrics > small{
                     width: 40%;
                     flex-grow: 1;
                     gap: var(--PaddingButtons);
@@ -247,7 +271,7 @@ export default css`
                     color: var(--Gris2);
                 }
             span.btns-interact {
-
+                z-index: 2;
             }
                 .btn-card{
                     width: 30%;
@@ -262,12 +286,9 @@ export default css`
                         height: auto;
                         aspect-ratio: 1/1;
                     }
-
-
 h2 {
     text-align: center;
 }
-
 .btn-edit:hover {
     background-color: rgba(2, 64, 220, 0.587);
     border: solid 2px blue;
@@ -312,7 +333,6 @@ h2 {
                 margin-left: auto;
             }
         .mensaje--container{
-            
             width: 100%;
             height: 80%;
             gap: var(--PaddingButtons);
@@ -333,6 +353,20 @@ h2 {
                 border: solid 2px red;
                 color: white;
             }
+            .edit--msg{
+                background-color: rgba(2, 64, 220, 0.59);
+                border: solid 2px blue;
+                color: white;
+            }
+                .form--edit{
+                    width: 100%;
+                }
+                .form--edit > .form--sides {
+                    width: 100%;
+                }
+                .form--container > .error--msg{
+                    display: none;
+                }
             .war--msg{
                 background-color: rgba(220, 216, 2, 0.587);
                 border: solid 2px yellow;
@@ -345,5 +379,22 @@ h2 {
                 background-color: red;
                 color: white;
             }
+            .btn-editar{
+                background-color: blue;
+                color: white;
+            }
 /* MODAL STYLES */
+
+
+.layout--container{
+    margin-block: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--PaddingButtons);
+    border: solid 1px var(--Gris2);
+}
+.layout--container > p{
+    width: 100%;
+    text-align: center;
+}
 `;
