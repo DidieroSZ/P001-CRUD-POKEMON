@@ -3,6 +3,16 @@ import generalStyles from "../../css/genera.css.js"; // <---- GLOBAL STYLES
 import { getLocal, objectTypes, styleImage } from "../../utils/common.js"; // <---- COMMON FUNCTIONS
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js'
 
+/**
+ * @class ListComponent
+ * @extends {LitElement}
+ * @description
+ * Componente principal encargado de renderizar la lista de pokemones en localStorage.
+ * Permite a su vez, editar y eliminar algun item.
+ *
+ * @example
+ * <list-component></party-component>
+ */
 export class ListComponent extends LitElement {
     static properties = {
         styleImg: {type: String},
@@ -24,7 +34,7 @@ export class ListComponent extends LitElement {
         `;
     }
 
-    /* ---- FUNCIONES LocalStorage ---- */
+    /* -------------------------- FUNCIONES LOCALSTORAGE -------------------------- */
         _renderLocal() {
             const pokemones = getLocal('pokemones');
             if (pokemones && pokemones.length > 0) {
@@ -79,10 +89,10 @@ export class ListComponent extends LitElement {
                 `;
             }
         }
-    /* ---- FUNCIONES LocalStorage ---- */
+    /* -------------------------- FUNCIONES LOCALSTORAGE -------------------------- */
 
 
-    /* ---- FUNCIONES BTNS ---- */
+    /* -------------------------- FUNCIONES BTNS -------------------------- */
         _editPoke(e) {
             const btn = e.target.closest("button");
             const idPoke = btn.dataset.id;
@@ -93,10 +103,10 @@ export class ListComponent extends LitElement {
             const idPoke = btn.dataset.id;
             this._alertForm('delete', idPoke);
         }
-    /* ---- FUNCIONES BTNS ---- */
+    /* -------------------------- FUNCIONES BTNS -------------------------- */
 
 
-    /* ---- FUNCIONES FORM ---- */
+    /* -------------------------- FUNCIONES ALERT MODAL -------------------------- */
         _alertForm(t, id){
                 this.dispatchEvent(
                 new CustomEvent('alert-modal', {
@@ -106,6 +116,6 @@ export class ListComponent extends LitElement {
                 })
             );
         }
-    /* ---- FUNCIONES FORM ---- */
+    /* -------------------------- FUNCIONES ALERT MODAL -------------------------- */
 }
 customElements.define('list-component', ListComponent);

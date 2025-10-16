@@ -14,7 +14,6 @@ import { getLocal, setLocal, reloadPage, objectTypes } from "../../utils/common.
  * @example
  * <party-component></party-component>
  */
-
 export class PartyComponent extends LitElement {
     static properties = {
         pokemonesObject: {type: Object},
@@ -68,7 +67,7 @@ export class PartyComponent extends LitElement {
         this.styleImg = e.detail.styleimg;
     }
 
-    /* ---- FUNCIONES FORMS ---- */
+   /* -------------------------- FUNCIONES FORMS -------------------------- */
         _validateForm(e){
             e.preventDefault();
             const nombre = this.renderRoot.querySelector('#nombre').value.trim();
@@ -92,10 +91,10 @@ export class PartyComponent extends LitElement {
                 })
             );
         }
-    /* ---- FUNCIONES FORMS ---- */
+    /* -------------------------- FUNCIONES FORMS -------------------------- */
 
 
-    /* ---- FUNCIONES TIPOS ---- */
+    /* -------------------------- FUNCIONES TIPOS POKEMONES -------------------------- */
         _multipleTypes(){
             return html`
             <p>Máximo 2 tipos por pokemon:</p>
@@ -119,10 +118,10 @@ export class PartyComponent extends LitElement {
                 this.tiposSeleccionados = this.tiposSeleccionados.filter(v => v !== value);
             }
         }
-    /* ---- FUNCIONES TIPOS ---- */
+    /* -------------------------- FUNCIONES TIPOS POKEMONES -------------------------- */
 
 
-    /* ---- FUNCIONES LocalStorage ---- */
+    /* -------------------------- FUNCIONES LOCALSTORAGE -------------------------- */
         _setPokem(n, p, a, ts){ 
             let arrayPokemones = [];
             const id = Math.floor(Math.random() * (1302 - 1 + 1)) + 1;
@@ -140,6 +139,6 @@ export class PartyComponent extends LitElement {
             arrayPokemones.push(this.pokemonesObject);
             setLocal('pokemones', arrayPokemones);
         }
-    /* ---- FUNCIONES LocalStorage ---- */
+    /* -------------------------- FUNCIONES LOCALSTORAGE -------------------------- */
 }
 customElements.define('party-component', PartyComponent);

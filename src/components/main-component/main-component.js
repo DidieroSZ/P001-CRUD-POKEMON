@@ -7,7 +7,16 @@ import "../pokedex-component/pokedex-component.js" // <---- POKEDEX COMPONENT
 import "../party-component/party-component.js" // <---- PARTY COMPONENT
 import "../modal-component/modal-component.js" // <---- MODAL COMPONENT
 
-
+/**
+ * @class MainComponent
+ * @extends {LitElement}
+ * @description
+ * Componente principal encargado funcionar como wrapper para los demas componentes.
+ * Genera escuchadores para renderizado de páginas y modales.
+ *
+ * @example
+ * <main-component></main-component>
+ */
 export class MainComponent extends LitElement {
     static properties = {
         pageLoc: { type: String },
@@ -41,7 +50,7 @@ export class MainComponent extends LitElement {
         `;
     }
 
-    /* ---- FUNCIONES PAGE CHANGE ---- */
+    /* -------------------------- FUNCIONES PAGE CHANGE -------------------------- */
         _changePage(e){
             this.pageLoc = e.detail.page;
         }
@@ -53,10 +62,10 @@ export class MainComponent extends LitElement {
                     return html`<pokedex-component></pokedex-component>`;
             }
         }
-    /* ---- FUNCIONES PAGE CHANGE ---- */
+    /* -------------------------- FUNCIONES PAGE CHANGE -------------------------- */
 
 
-    /* ---- FUNCIONES TYPE CHANGE ---- */
+    /* -------------------------- FUNCIONES TYPE CHANGE MODAL -------------------------- */
         _closeModal(){
             this.mostrar = false;
         }
@@ -65,6 +74,6 @@ export class MainComponent extends LitElement {
             this.mostrar = true;
             this.item = e.detail.id;
         }
-    /* ---- FUNCIONES TYPE CHANGE ---- */
+     /* -------------------------- FUNCIONES TYPE CHANGE MODAL -------------------------- */
 }
 customElements.define('main-component', MainComponent);

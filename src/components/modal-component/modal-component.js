@@ -2,6 +2,16 @@ import { LitElement, html, css } from "lit-element";
 import generalStyles from "../../css/genera.css.js"; // <---- GLOBAL STYLES
 import { getLocal, setLocal, reloadPage } from "../../utils/common.js"; // <---- COMMON FUNCTIONS
 
+/**
+ * @class ModalComponent
+ * @extends {LitElement}
+ * @description
+ * Componente modal encargado de reutilizar un modal para diferente funcionalidades.
+ * Hace uso de funciones comunes para estilos de imágenes.
+ *
+ * @example
+ * <modal-component></modal-component>
+ */
 export class ModalComponent extends LitElement {
     static properties = {
         type: {type: String},
@@ -53,7 +63,7 @@ export class ModalComponent extends LitElement {
     }
 
 
-    /* ---- FUNCIONES ITEMS ---- */
+    /* -------------------------- FUNCIONES CRUD LOCALSTORAGE -------------------------- */
         _deleteItem(){
             const pokemones = getLocal('pokemones');
             pokemones.splice(this.item, 1);
@@ -98,10 +108,10 @@ export class ModalComponent extends LitElement {
             this._closeModal();
             reloadPage();
         }
-    /* ---- FUNCIONES ITEMS ---- */
+    /* -------------------------- FUNCIONES CRUD LOCALSTORAGE -------------------------- */
 
 
-    /* ---- FUNCIONES TIPOS ---- */
+    /* -------------------------- FUNCIONES POKEMON TYPES -------------------------- */
         _multipleTypes(tipos){
             return html`
             <p>Máximo 2 tipos por pokemon:</p>
@@ -140,10 +150,10 @@ export class ModalComponent extends LitElement {
                 this.tiposSeleccionados = this.tiposSeleccionados.filter(v => v !== value);
             }
         }
-    /* ---- FUNCIONES TIPOS ---- */
+    /* -------------------------- FUNCIONES POKEMON TYPES -------------------------- */
 
 
-    /* ---- FUNCIONES MODAL ---- */
+    /* -------------------------- FUNCIONES MODAL TYPE -------------------------- */
         _closeModal(){
             this.mostrar = false;
             this.dispatchEvent(
@@ -204,6 +214,6 @@ export class ModalComponent extends LitElement {
                     `;
             }
         }
-    /* ---- FUNCIONES MODAL ---- */
+    /* -------------------------- FUNCIONES MODAL TYPE -------------------------- */
 }
 customElements.define('modal-component', ModalComponent);

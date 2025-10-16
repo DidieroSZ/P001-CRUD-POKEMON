@@ -1,6 +1,16 @@
 import { LitElement, html, css } from "lit-element";
 import generalStyles from "../../css/genera.css.js"; // <---- GLOBAL STYLES
 
+/**
+ * @class LayoutComponent
+ * @extends {LitElement}
+ * @description
+ * Componente encargado de logica para renderizado de estilos de imágenes pokemon.
+ * 
+ *
+ * @example
+ * <layout-component></layout-component>
+ */
 export class LayoutComponent extends LitElement {
     static properties = {
         styleImg: {type: String},
@@ -45,31 +55,33 @@ export class LayoutComponent extends LitElement {
         `;
     }
 
-    _changeImageStyle(e){
-        const btns = this.renderRoot.querySelectorAll('.btn-nav');
-        btns.forEach(b => {
-            b.classList.remove('btn-active');
-        });
 
-        if (e) {
-            const btn = e.target.closest('button');
-            btn.classList.add('btn-active');
-            this.styleImg = btn.dataset.style;
-            localStorage.setItem('estilo', this.styleImg);
-        }
-        else{
-            let pos = parseInt(this.styleImg);
-            btns[pos-1].classList.add('btn-active');
-            /* localStorage.setItem('estilo', this.styleImg); */
-        }
+    /* -------------------------- FUNCIONES IMAGE CHANGE -------------------------- */
+        _changeImageStyle(e){
+            const btns = this.renderRoot.querySelectorAll('.btn-nav');
+            btns.forEach(b => {
+                b.classList.remove('btn-active');
+            });
+
+            if (e) {
+                const btn = e.target.closest('button');
+                btn.classList.add('btn-active');
+                this.styleImg = btn.dataset.style;
+                localStorage.setItem('estilo', this.styleImg);
+            }
+            else{
+                let pos = parseInt(this.styleImg);
+                btns[pos-1].classList.add('btn-active');
+            }
         
-        this.dispatchEvent(
-            new CustomEvent('style-state', {
-                bubbles: true,
-                composed: true,
-                detail: { styleimg: this.styleImg },
-            })
-        );
-    }
+            this.dispatchEvent(
+                new CustomEvent('style-state', {
+                    bubbles: true,
+                    composed: true,
+                    detail: { styleimg: this.styleImg },
+                })
+            );
+        }
+    /* -------------------------- FUNCIONES IMAGE CHANGE -------------------------- */
 }
 customElements.define('layout-component', LayoutComponent);
