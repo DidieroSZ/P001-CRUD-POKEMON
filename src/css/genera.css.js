@@ -343,8 +343,7 @@ h2 {
         border: solid 1px var(--Gris2);
         padding: var(--PaddingSections);
         border-radius: var(--RadiusSections);
-        justify-content: start;
-        gap: var(--PaddingSections);
+        gap: var(--PaddingButtons);
     }
         .close{
             width: 100%;
@@ -364,6 +363,9 @@ h2 {
             border-radius: var(--PaddingButtons);
             flex-wrap: wrap;
         }   
+            .modal .form--container{
+                gap: 1rem;
+            }
             .text-msg{
                 width:100%;
                 gap: var(--PaddingButtons);
