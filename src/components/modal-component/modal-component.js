@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit-element";
 import generalStyles from "../../css/genera.css.js"; // <---- GLOBAL STYLES
-import { getLocal, setLocal, reloadPage } from "../../utils/common.js"; // <---- COMMON FUNCTIONS
+import { getLocal, setLocal, reloadPage, objectTypes, arrayTypes} from "../../utils/common.js"; // <---- COMMON FUNCTIONS
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js'
 
 /**
  * @class ModalComponent
@@ -16,11 +17,8 @@ export class ModalComponent extends LitElement {
     static properties = {
         type: {type: String},
         item: {type: String},
-        
         mostrar: {type: Boolean},
         tiposSeleccionados: {type: Array},
-        arrayTypes: {type: Array},
-
         nombre2: {type: String},
     }
     constructor(){
@@ -30,11 +28,6 @@ export class ModalComponent extends LitElement {
         this.item = '';
         this.mostrar = false;
         this.tiposSeleccionados = [];
-         this.arrayTypes = [
-            'Water', 'Fire', 'Grass', 'Electric', 'Rock', 'Ground', 'Normal', 
-            'Fighting', 'Dark', 'Steel', 'Psychic', 'Ghost', 'Bug', 
-            'Poison', 'Flying', 'Fairy', 'Ice', 'Dragon'
-        ];
     }
     firstUpdated() {
 
@@ -55,7 +48,6 @@ export class ModalComponent extends LitElement {
                             <div class="mensaje--container d-flexx d-row">
                                 ${this._renderType()}
                             </div>
-                            
                         </modal>
                 </section>
             `;
@@ -116,13 +108,17 @@ export class ModalComponent extends LitElement {
             return html`
             <p>Máximo 2 tipos por pokemon:</p>
             <div class="tipos--container d-flexx d-row">
-                ${this.arrayTypes.map((nombre) => {
+                ${arrayTypes.map((nombre) => {
                     const checked = tipos.includes(nombre);
                     return html` 
-                        <div class="check--container">
-                            <input type="checkbox" id="${nombre}" value="${nombre}" ?checked=${checked} @change=${this._handleCheckboxChange}>
-                            <label for="${nombre}">${nombre}</label>
-                        </div>
+
+                        <div class="check--container d-flexx">
+                                                    <input class="input--check" type="checkbox" id="${nombre}" value="${nombre}" ?checked=${checked} @change=${this._handleCheckboxChange}>
+                                                    <label class="label--check d-flexx" for="${nombre}" style="--color-type: ${objectTypes[nombre].color};">
+                                                        ${unsafeHTML(objectTypes[nombre].icon)}
+                                                        <small>${nombre}</small>
+                                                    </label>
+                                                </div>
                     `;
                     
                 })}

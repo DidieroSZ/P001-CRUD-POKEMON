@@ -106,6 +106,12 @@ export const objectTypes = {
   },
 };
 
+export const arrayTypes = [
+            'Water', 'Fire', 'Grass', 'Electric', 'Rock', 'Ground', 'Normal', 
+            'Fighting', 'Dark', 'Steel', 'Psychic', 'Ghost', 'Bug', 
+            'Poison', 'Flying', 'Fairy', 'Ice', 'Dragon'
+          ];
+
 export const styleImage = (tipo, n, id) => {
   switch (tipo) {
     case "1":

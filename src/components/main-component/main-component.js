@@ -6,6 +6,7 @@ import "../nav-component/nav-component.js" // <---- NAV COMPONENT
 import "../pokedex-component/pokedex-component.js" // <---- POKEDEX COMPONENT
 import "../party-component/party-component.js" // <---- PARTY COMPONENT
 import "../modal-component/modal-component.js" // <---- MODAL COMPONENT
+import "../form-component/form-component.js" // <---- MODAL COMPONENT
 
 /**
  * @class MainComponent
@@ -60,6 +61,10 @@ export class MainComponent extends LitElement {
                     return html`<party-component @delete-item=${this._closeModal}></party-component>`;
                 case 'pokedex':
                     return html`<pokedex-component></pokedex-component>`;
+               case 'form':
+                    return html`<form-component></form-component>`;
+                default:
+                    return html`<form-component></form-component>`;
             }
         }
     /* -------------------------- FUNCIONES PAGE CHANGE -------------------------- */

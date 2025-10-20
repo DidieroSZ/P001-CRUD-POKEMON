@@ -144,9 +144,31 @@
                 display: flex;
                 gap: 3px;
                 width: fit-content;
+                height: auto;
                 flex-grow: 1;
                 flex-shrink: 1;
+                background-color: #232323;
             }
+                .input--check{
+                    display: none;
+                }
+
+                .label--check{
+                    cursor: pointer;
+                    padding: 3px;
+                    width: fit-content;
+                    height: auto;
+                    border-radius: 5px;
+                    gap: 3px;
+                    color: white;
+                    transition: all 0.3s;
+                    border-width: 1px;
+                    border-style: solid;
+                }
+                .input--check[type="checkbox"]:checked + .label--check{
+                    background-color: inherit;
+                    color: white;
+                }
 
     .form--container > button {
         width: 100%;

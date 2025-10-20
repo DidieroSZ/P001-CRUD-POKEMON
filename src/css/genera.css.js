@@ -101,8 +101,11 @@ export default css`
     .btn-nav-left{
         border-radius: var(--PaddingButtons) 0px 0px var(--PaddingButtons);
     }
+    .btn-nav-middle{
+        border-radius: 0px ;
+    }
     .btn-nav-rigth{
-         border-radius: 0px var(--PaddingButtons) var(--PaddingButtons) 0px;
+        border-radius: 0px var(--PaddingButtons) var(--PaddingButtons) 0px;
     }
 /* NAV STYLES  */
 
@@ -141,15 +144,36 @@ export default css`
             width: 100%;
             gap: var(--PaddingButtons);
             flex-wrap: wrap;
-            
+            justify-content: start;
         }
             .check--container{
-                display: flex;
                 gap: 3px;
                 width: fit-content;
+                height: auto;
                 flex-grow: 1;
-                flex-shrink: 1;
             }
+                .input--check{
+                    display: none;
+                }
+                .label--check{
+                    cursor: pointer;
+                    padding: 3px;
+                    width: 100%;
+                    height: auto;
+                    border-radius: 5px;
+                    overflow: hidden;
+                    gap: var(--PaddingButtons);
+                    color: var(--Negro);
+                    transition: all 0.3s;
+                    border: solid 1px var(--Negro);
+                    opacity: 0.8;
+                }
+                    .input--check[type="checkbox"]:checked + .label--check{
+                        background-color: var(--color-type);
+                        color: white;
+                        opacity: 1;
+                        border: solid 1px var(--color-type);
+                    }
 
     .form--container > button {
         width: 100%;
