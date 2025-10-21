@@ -1,4 +1,4 @@
-import { LitElement, html, css } from "lit-element";
+import { LitElement, html, css } from "lit";
 
 export const getLocal = (nombre) => {
   const informacion = localStorage.getItem(nombre);

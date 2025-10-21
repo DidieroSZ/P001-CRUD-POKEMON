@@ -1,7 +1,5 @@
-import { LitElement, html, css } from "lit-element";
-import mainStyles from "./main-component-styles.js"; // <---- MAIN STYLES
+import { LitElement, html, css } from "lit";
 import generalStyles from "../../css/genera.css.js"; // <---- GLOBAL STYLES
-
 import "../nav-component/nav-component.js" // <---- NAV COMPONENT
 import "../pokedex-component/pokedex-component.js" // <---- POKEDEX COMPONENT
 import "../party-component/party-component.js" // <---- PARTY COMPONENT
