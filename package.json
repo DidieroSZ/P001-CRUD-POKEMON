@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "web-test-runner \"test/**/*.test.js\" --node-resolve",
     "start": "web-dev-server --node-resolve --open --watch"
   },
   "keywords": [],
@@ -19,7 +19,10 @@
     "lucide": "^0.545.0"
   },
   "devDependencies": {
+    "@open-wc/testing": "^3.0.0-next.5",
     "@web/dev-server": "^0.4.6",
+    "@web/test-runner": "^0.20.2",
+    "@web/test-runner-playwright": "^0.11.1",
     "vite": "^7.1.9"
   }
 }
