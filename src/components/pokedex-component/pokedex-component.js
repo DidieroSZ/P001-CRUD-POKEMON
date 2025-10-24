@@ -1,4 +1,4 @@
-import { LitElement, html, css } from "lit-element";
+import { LitElement, html } from "lit-element";
 import generalStyles from "../../css/genera.css.js"; // <---- GLOBAL STYLES
 import { objectTypes, styleImage } from "../../utils/common.js"; // <---- COMMON FUNCTIONS
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js'

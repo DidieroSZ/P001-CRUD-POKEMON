@@ -1,8 +1,7 @@
-import { LitElement, html, css } from "lit-element";
+import { LitElement, html } from "lit-element";
 import generalStyles from "../../css/genera.css.js"; // <---- GLOBAL STYLES
 import "../layout-component/layout-component.js" // <---- LAYOUT COMPONENT 
 import "../list-component/list-component.js" // <---- LIST COMPONENT 
-import { getLocal, setLocal, reloadPage, arrayTypes } from "../../utils/common.js"; // <---- COMMON FUNCTIONS
 
 /**
  * @class PartyComponent

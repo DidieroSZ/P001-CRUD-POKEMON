@@ -1,5 +1,4 @@
-import { LitElement, html, css } from "lit-element";
-import mainStyles from "./main-component-styles.js"; // <---- MAIN STYLES
+import { LitElement, html } from "lit-element";
 import generalStyles from "../../css/genera.css.js"; // <---- GLOBAL STYLES
 
 import "../nav-component/nav-component.js" // <---- NAV COMPONENT
@@ -31,9 +30,6 @@ export class MainComponent extends LitElement {
         this.type = 'error';
         this.item = '';
         this.mostrar = false;
-    }
-    firstUpdated() {
-
     }
 
     static styles = [generalStyles];
