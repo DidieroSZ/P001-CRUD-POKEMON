@@ -113,7 +113,7 @@ export class PokeComponent extends LitElement {
           );
         } else {
           return html`
-            <p colspan="6">No hay pokemones guardados.</p>
+            <p colspan="6">---- OBTENIENDO INFORMACIÓN ---- </p>
           `;
         }
       }

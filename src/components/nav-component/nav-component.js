@@ -35,14 +35,8 @@ export class NavComponent extends LitElement {
         `;
     }
 
-    _pageState(e){
-        const btn = e.target.closest('button');
-        const btns = this.renderRoot.querySelectorAll('.btn-nav');
-        btns.forEach(b => {
-            b.classList.remove('btn-active');
-        });
-        btn.classList.add('btn-active');
-        this.pageState = btn.dataset.page;
+    _pageState(e){       
+        this.pageState = this._btnStateLogic(e);
         this.dispatchEvent(
             new CustomEvent('page-state', {
                 bubbles: true,
@@ -50,6 +44,17 @@ export class NavComponent extends LitElement {
                 detail: { page: this.pageState },
             })
         );
+    }
+
+    _btnStateLogic(e){
+        const btn = e.target.closest('button');
+        const btns = this.renderRoot.querySelectorAll('.btn-nav');
+        btns.forEach(b => {
+            b.classList.remove('btn-active');
+        });
+        
+        btn.classList.add('btn-active');
+        return btn.dataset.page;
     }
 }
 customElements.define('nav-component', NavComponent);
