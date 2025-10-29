@@ -3,7 +3,7 @@ import '../src/components/nav-component/nav-component.js';
 
 describe('NavComponent', () => {
   let el;
-  
+
   beforeEach(() => {
     el = document.createElement('nav-component');
     document.body.appendChild(el);
@@ -25,7 +25,6 @@ describe('NavComponent', () => {
 
   it('Buttons Click', async () => {
     const btns = el.shadowRoot.querySelectorAll('.btn-nav');
-
     btns.forEach((btn, i) => {
         btn.click();
         expect(btn.classList.contains('btn-active')).toBe(true);
