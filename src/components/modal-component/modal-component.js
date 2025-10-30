@@ -19,12 +19,10 @@ export class ModalComponent extends LitElement {
         item: {type: String},
         mostrar: {type: Boolean},
         tiposSeleccionados: {type: Array},
-        nombre2: {type: String},
     }
     constructor(){
         super();
         this.type = '';
-        this.nombre2 = '';
         this.item = '';
         this.mostrar = false;
         this.tiposSeleccionados = [];
@@ -110,12 +108,12 @@ export class ModalComponent extends LitElement {
                     return html` 
 
                         <div class="check--container d-flexx">
-                                                    <input class="input--check" type="checkbox" id="${nombre}" value="${nombre}" ?checked=${checked} @change=${this._handleCheckboxChange}>
-                                                    <label class="label--check d-flexx" for="${nombre}" style="--color-type: ${objectTypes[nombre].color};">
-                                                        ${unsafeHTML(objectTypes[nombre].icon)}
-                                                        <small>${nombre}</small>
-                                                    </label>
-                                                </div>
+                            <input class="input--check" type="checkbox" id="${nombre}" value="${nombre}" ?checked=${checked} @change=${this._handleCheckboxChange}>
+                            <label class="label--check d-flexx" for="${nombre}" style="--color-type: ${objectTypes[nombre].color};">
+                                ${unsafeHTML(objectTypes[nombre].icon)}
+                            <small>${nombre}</small>
+                            </label>
+                        </div>
                     `;
                     
                 })}
@@ -204,6 +202,13 @@ export class ModalComponent extends LitElement {
                         </p>
                         <button class="btn-modal btn-general" @click=${this._closeModal}>Cancelar</button>
                         <button class="btn-modal btn-general btn-eliminar" @click=${this._deleteItem}>Eliminar</button>
+                    `;
+                default:
+                    return html`
+                        <p class="text-msg error--msg d-flexx">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                            ¡Verifica la información ingresada!
+                        </p>
                     `;
             }
         }

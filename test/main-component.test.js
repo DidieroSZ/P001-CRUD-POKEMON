@@ -7,9 +7,8 @@ describe('MainComponent', () => {
         el = document.createElement('main-component');
         document.body.appendChild(el);
     });
-
     
-    it('se renderiza correctamente', () => {
+    it('sCorrect Component Render', () => {
         expect(el.shadowRoot).not.toBeNull();
         const nav = el.shadowRoot.querySelector('nav-component');
         const modal = el.shadowRoot.querySelector('modal-component');
@@ -17,8 +16,7 @@ describe('MainComponent', () => {
         expect(modal).not.toBeNull();
     });
 
-
-    it('cambia el contenido cuando recibe page-state', async () => {
+    it('Event Change Page State Pokedex', async () => {
         const event = new CustomEvent('page-state', {
             bubbles: true,
             composed: true,
@@ -36,8 +34,43 @@ describe('MainComponent', () => {
         expect(pokedex).not.toBeNull();
     });
 
+    it('Event Change Page State Party', async () => {
+        const event = new CustomEvent('page-state', {
+            bubbles: true,
+            composed: true,
+            detail: { page: 'party' },
+        });
 
-    it('muestra el modal con el tipo e id correctos', () => {
+        const nav = el.shadowRoot.querySelector('nav-component');
+        expect(nav).not.toBeNull();
+        nav.dispatchEvent(event);
+
+        await el.updateComplete;
+
+        expect(el.pageLoc).toBe('party');
+        const pokedex = el.shadowRoot.querySelector('party-component');
+        expect(pokedex).not.toBeNull();
+    });
+
+        it('Event Change Page State Form', async () => {
+        const event = new CustomEvent('page-state', {
+            bubbles: true,
+            composed: true,
+            detail: { page: 'form' },
+        });
+
+        const nav = el.shadowRoot.querySelector('nav-component');
+        expect(nav).not.toBeNull();
+        nav.dispatchEvent(event);
+
+        await el.updateComplete;
+
+        expect(el.pageLoc).toBe('form');
+        const pokedex = el.shadowRoot.querySelector('form-component');
+        expect(pokedex).not.toBeNull();
+    });
+
+    it('Show Modal Delete Action', () => {
         const event = new CustomEvent('alert-modal', {
             bubbles: true,
             composed: true,
@@ -52,8 +85,7 @@ describe('MainComponent', () => {
         expect(el.mostrar).toBe(true);
     });
 
-
-    it('oculta el modal cuando se emite close-modal', () => {
+    it('Close Modal', () => {
         el.mostrar = true;
         const event = new CustomEvent('close-modal', { 
             bubbles: true, 
