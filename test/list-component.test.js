@@ -1,87 +1,85 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import '../src/components/list-component/list-component.js';
-import { objectTypes, mockPokemones } from "../mocks/mockPokemon.js"
 
-// --- MOCK DE DEPENDENCIAS --- //
-/* vi.mock('../src/utils/common.js', () => ({
+vi.mock('../src/utils/common.js', () => ({
   getLocal: vi.fn(),
   objectTypes: {
     fuego: { color: '#f00', icon: '<svg></svg>', name: 'Fuego' },
     agua: { color: '#00f', icon: '<svg></svg>', name: 'Agua' },
   },
-  styleImage: vi.fn(() => '<img src="test.png" alt="poke"/>'),
+  styleImage: vi.fn((styleImg, nombre, id) => `<img src="${nombre}-${id}-${styleImg}.png">`),
 }));
 
-import { getLocal, styleImage } from '../src/utils/common.js'; */
+import { getLocal } from '../src/utils/common.js';
 
 describe('ListComponent', () => {
-    let el;
-    beforeEach(() => {
-        document.body.innerHTML = '';
-        /* vi.clearAllMocks(); */
-        el = document.createElement('list-component');
-        document.body.appendChild(el);
-    });
+  let el;
 
-    it('Correct Component Render', () => {
-        expect(el).toBeInstanceOf(HTMLElement);
-    });
+  beforeEach(() => {
+    document.body.innerHTML = '';
+    el = document.createElement('list-component');
+    document.body.appendChild(el);
+  });
 
-    it('No Pokemon Data ', async () => {
-        let pokemonotes = localStorage.getItem('pokemonotes');
-        await el.updateComplete;
-        expect(pokemonotes).toBeNull();
-    });
+  it('Correct Component Render', () => {
+    expect(el).toBeInstanceOf(HTMLElement);
+    expect(el.tagName.toLowerCase()).toBe('list-component');
+  });
 
-    /* it('Render Data if Exist', async () => {
-        getLocal.mockReturnValueOnce([
-        { nombre: 'Charmander', tipos: ['fuego'], peso: 8.5, altura: 0.6, id: 4 },
-        { nombre: 'Squirtle', tipos: ['agua'], peso: 9.0, altura: 0.5, id: 7 },
-        ]);
+  it('No Pokemon Information', async () => {
+    getLocal.mockReturnValueOnce(null);
+    el.requestUpdate();
+    await el.updateComplete;
 
-        // Forzamos re-render
-        el.requestUpdate();
-        await el.updateComplete;
+    const msg = el.shadowRoot.querySelector('p');
+    expect(msg.textContent.trim()).toBe('No hay Pokémones guardados.');
+  });
 
-        const cards = el.shadowRoot.querySelectorAll('.card--list');
-        expect(cards.length).toBe(2);
-    });
+  it('Renderiza correctamente la lista de pokémones', async () => {
+    getLocal.mockReturnValueOnce([
+      {
+        nombre: 'Charmander',
+        id: 1,
+        tipos: ['fuego'],
+        peso: 8.5,
+        altura: 0.6,
+      },
+      {
+        nombre: 'Squirtle',
+        id: 2,
+        tipos: ['agua'],
+        peso: 9.0,
+        altura: 0.5,
+      },
+    ]);
 
-    it('Debe disparar el evento "alert-modal" al hacer click en Editar', async () => {
-        getLocal.mockReturnValueOnce([
-        { nombre: 'Charmander', tipos: ['fuego'], peso: 8.5, altura: 0.6, id: 4 },
-        ]);
-        el.requestUpdate();
-        await el.updateComplete;
+    el.requestUpdate();
+    await el.updateComplete;
 
-        const spy = vi.fn();
-        el.addEventListener('alert-modal', spy);
+    const cards = el.shadowRoot.querySelectorAll('.card--list');
+    expect(cards.length).toBe(2);
+  });
 
-        const editBtn = el.shadowRoot.querySelector('.btn-edit');
-        editBtn.click();
+  it('Wdit Modal Event', async () => {
+    getLocal.mockReturnValueOnce([
+      {
+        nombre: 'Charmander',
+        id: 1,
+        tipos: ['fuego'],
+        peso: 8.5,
+        altura: 0.6,
+      },
+    ]);
 
-        expect(spy).toHaveBeenCalledTimes(1);
+    el.requestUpdate();
+    await el.updateComplete;
 
-        const eventDetail = spy.mock.calls[0][0].detail;
-        expect(eventDetail).toEqual({ type: 'edit', id: '0' });
-    });
+    const mockHandler = vi.fn();
+    el.addEventListener('alert-modal', mockHandler);
 
-    it('Debe disparar el evento "alert-modal" al hacer click en Eliminar', async () => {
-        getLocal.mockReturnValueOnce([
-        { nombre: 'Charmander', tipos: ['fuego'], peso: 8.5, altura: 0.6, id: 4 },
-        ]);
-        el.requestUpdate();
-        await el.updateComplete;
+    const editBtn = el.shadowRoot.querySelector('.btn-edit');
+    editBtn.click();
 
-        const spy = vi.fn();
-        el.addEventListener('alert-modal', spy);
-
-        const deleteBtn = el.shadowRoot.querySelector('.btn-delete');
-        deleteBtn.click();
-
-        expect(spy).toHaveBeenCalledTimes(1);
-
-        const eventDetail = spy.mock.calls[0][0].detail;
-        expect(eventDetail).toEqual({ type: 'delete', id: '0' });
-    }); */
+    expect(mockHandler).toHaveBeenCalledTimes(1);
+  });
 });
