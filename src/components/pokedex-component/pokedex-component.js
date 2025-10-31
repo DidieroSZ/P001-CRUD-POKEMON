@@ -38,6 +38,7 @@ export class PokeComponent extends LitElement {
       );
 
       this.pokemones = detalles;
+      console.log(this.pokemones);
     } catch (err) {
       console.error(err);
     }

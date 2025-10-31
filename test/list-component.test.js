@@ -26,7 +26,7 @@ describe('ListComponent', () => {
     expect(el.tagName.toLowerCase()).toBe('list-component');
   });
 
-  it('No Pokemon Information', async () => {
+  it('No Pokemon Data', async () => {
     getLocal.mockReturnValueOnce(null);
     el.requestUpdate();
     await el.updateComplete;
@@ -35,7 +35,7 @@ describe('ListComponent', () => {
     expect(msg.textContent.trim()).toBe('No hay Pokémones guardados.');
   });
 
-  it('Renderiza correctamente la lista de pokémones', async () => {
+  it('Correct Pokemon Data Render', async () => {
     getLocal.mockReturnValueOnce([
       {
         nombre: 'Charmander',
