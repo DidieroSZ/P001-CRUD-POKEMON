@@ -1,47 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1761851871297" clover="3.2.0">
-  <project timestamp="1761851871297" name="All files">
-    <metrics statements="76" coveredstatements="50" conditionals="27" coveredconditionals="12" methods="18" coveredmethods="12" elements="121" coveredelements="74" complexity="0" loc="76" ncloc="76" packages="4" files="4" classes="4"/>
+<coverage generated="1761870504765" clover="3.2.0">
+  <project timestamp="1761870504765" name="All files">
+    <metrics statements="219" coveredstatements="174" conditionals="56" coveredconditionals="38" methods="64" coveredmethods="49" elements="339" coveredelements="261" complexity="0" loc="219" ncloc="219" packages="12" files="12" classes="12"/>
     <package name="mocks">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="mockPokemon.js" path="C:\Users\osaucedz\OneDrive - NTT DATA EMEAL\Escritorio\NTTDATA\P001-CRUD-POKEMON\mocks\mockPokemon.js">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.form-component">
+      <metrics statements="32" coveredstatements="32" conditionals="13" coveredconditionals="12" methods="9" coveredmethods="9"/>
+      <file name="form-component.js" path="C:\Users\osaucedz\OneDrive - NTT DATA EMEAL\Escritorio\NTTDATA\P001-CRUD-POKEMON\src\components\form-component\form-component.js">
+        <metrics statements="32" coveredstatements="32" conditionals="13" coveredconditionals="12" methods="9" coveredmethods="9"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+        <line num="29" count="7" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="35" count="10" type="stmt"/>
+        <line num="54" count="3" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="56" count="3" type="stmt"/>
+        <line num="57" count="3" type="stmt"/>
+        <line num="59" count="3" type="stmt"/>
+        <line num="60" count="3" type="cond" truecount="9" falsecount="0"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="64" count="2" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="81" count="10" type="stmt"/>
+        <line num="85" count="36" type="stmt"/>
+        <line num="100" count="3" type="stmt"/>
+        <line num="101" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="102" count="2" type="stmt"/>
+        <line num="104" count="2" type="stmt"/>
+        <line num="112" count="2" type="stmt"/>
+        <line num="113" count="2" type="stmt"/>
+        <line num="114" count="2" type="stmt"/>
+        <line num="115" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="116" count="2" type="stmt"/>
+        <line num="118" count="2" type="stmt"/>
+        <line num="125" count="2" type="stmt"/>
+        <line num="126" count="2" type="stmt"/>
+        <line num="131" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.layout-component">
+      <metrics statements="22" coveredstatements="22" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+      <file name="layout-component.js" path="C:\Users\osaucedz\OneDrive - NTT DATA EMEAL\Escritorio\NTTDATA\P001-CRUD-POKEMON\src\components\layout-component\layout-component.js">
+        <metrics statements="22" coveredstatements="22" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="19" count="13" type="stmt"/>
+        <line num="20" count="13" type="stmt"/>
+        <line num="23" count="13" type="stmt"/>
+        <line num="24" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="29" count="12" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="36" count="16" type="stmt"/>
+        <line num="61" count="3" type="stmt"/>
+        <line num="62" count="3" type="stmt"/>
+        <line num="63" count="15" type="stmt"/>
+        <line num="66" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="67" count="2" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="69" count="2" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="77" count="3" type="stmt"/>
+        <line num="87" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.list-component">
+      <metrics statements="18" coveredstatements="9" conditionals="4" coveredconditionals="2" methods="8" coveredmethods="3"/>
+      <file name="list-component.js" path="C:\Users\osaucedz\OneDrive - NTT DATA EMEAL\Escritorio\NTTDATA\P001-CRUD-POKEMON\src\components\list-component\list-component.js">
+        <metrics statements="18" coveredstatements="9" conditionals="4" coveredconditionals="2" methods="8" coveredmethods="3"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="28" count="8" type="stmt"/>
+        <line num="39" count="8" type="stmt"/>
+        <line num="40" count="8" type="cond" truecount="2" falsecount="2"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="87" count="8" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="111" count="0" type="stmt"/>
+        <line num="121" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.main-component">
+      <metrics statements="19" coveredstatements="18" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="6"/>
+      <file name="main-component.js" path="C:\Users\osaucedz\OneDrive - NTT DATA EMEAL\Escritorio\NTTDATA\P001-CRUD-POKEMON\src\components\main-component\main-component.js">
+        <metrics statements="19" coveredstatements="18" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="6"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="28" count="6" type="stmt"/>
+        <line num="29" count="6" type="stmt"/>
+        <line num="30" count="6" type="stmt"/>
+        <line num="31" count="6" type="stmt"/>
+        <line num="32" count="6" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="38" count="10" type="stmt"/>
+        <line num="52" count="3" type="stmt"/>
+        <line num="55" count="10" type="cond" truecount="3" falsecount="1"/>
+        <line num="57" count="8" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="75" count="1" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.modal-component">
-      <metrics statements="58" coveredstatements="41" conditionals="19" coveredconditionals="11" methods="14" coveredmethods="11"/>
+      <metrics statements="58" coveredstatements="47" conditionals="19" coveredconditionals="12" methods="14" coveredmethods="12"/>
       <file name="modal-component.js" path="C:\Users\osaucedz\OneDrive - NTT DATA EMEAL\Escritorio\NTTDATA\P001-CRUD-POKEMON\src\components\modal-component\modal-component.js">
-        <metrics statements="58" coveredstatements="41" conditionals="19" coveredconditionals="11" methods="14" coveredmethods="11"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="24" count="5" type="stmt"/>
-        <line num="25" count="5" type="stmt"/>
-        <line num="26" count="5" type="stmt"/>
-        <line num="27" count="5" type="stmt"/>
-        <line num="28" count="5" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="34" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="35" count="6" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
+        <metrics statements="58" coveredstatements="47" conditionals="19" coveredconditionals="12" methods="14" coveredmethods="12"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="24" count="12" type="stmt"/>
+        <line num="25" count="12" type="stmt"/>
+        <line num="26" count="12" type="stmt"/>
+        <line num="27" count="12" type="stmt"/>
+        <line num="28" count="12" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="34" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="8" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
         <line num="62" count="15" type="stmt"/>
         <line num="63" count="15" type="stmt"/>
         <line num="64" count="15" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="68" count="1" type="stmt"/>
-        <line num="69" count="1" type="stmt"/>
-        <line num="70" count="1" type="stmt"/>
-        <line num="71" count="1" type="stmt"/>
-        <line num="72" count="1" type="stmt"/>
-        <line num="73" count="1" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="76" count="1" type="stmt"/>
-        <line num="77" count="1" type="cond" truecount="5" falsecount="4"/>
-        <line num="78" count="1" type="stmt"/>
-        <line num="79" count="1" type="stmt"/>
+        <line num="67" count="2" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="69" count="2" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
+        <line num="73" count="2" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
+        <line num="76" count="2" type="stmt"/>
+        <line num="77" count="2" type="cond" truecount="5" falsecount="4"/>
+        <line num="78" count="2" type="stmt"/>
+        <line num="79" count="2" type="stmt"/>
         <line num="81" count="0" type="stmt"/>
         <line num="84" count="0" type="stmt"/>
         <line num="85" count="0" type="stmt"/>
@@ -52,25 +169,93 @@
         <line num="103" count="3" type="stmt"/>
         <line num="107" count="54" type="stmt"/>
         <line num="108" count="54" type="stmt"/>
-        <line num="124" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="124" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="125" count="0" type="stmt"/>
         <line num="126" count="0" type="stmt"/>
-        <line num="129" count="1" type="stmt"/>
-        <line num="130" count="1" type="stmt"/>
-        <line num="131" count="1" type="stmt"/>
-        <line num="132" count="18" type="stmt"/>
-        <line num="133" count="18" type="stmt"/>
-        <line num="138" count="18" type="cond" truecount="1" falsecount="1"/>
+        <line num="129" count="2" type="stmt"/>
+        <line num="130" count="2" type="stmt"/>
+        <line num="131" count="2" type="stmt"/>
+        <line num="132" count="36" type="stmt"/>
+        <line num="133" count="36" type="stmt"/>
+        <line num="138" count="36" type="cond" truecount="1" falsecount="1"/>
         <line num="139" count="0" type="stmt"/>
-        <line num="141" count="18" type="stmt"/>
-        <line num="149" count="1" type="stmt"/>
-        <line num="150" count="1" type="stmt"/>
-        <line num="158" count="6" type="cond" truecount="2" falsecount="2"/>
+        <line num="141" count="36" type="stmt"/>
+        <line num="149" count="2" type="stmt"/>
+        <line num="150" count="2" type="stmt"/>
+        <line num="158" count="8" type="cond" truecount="3" falsecount="1"/>
         <line num="160" count="3" type="stmt"/>
         <line num="169" count="3" type="stmt"/>
-        <line num="198" count="0" type="stmt"/>
+        <line num="198" count="2" type="stmt"/>
         <line num="207" count="0" type="stmt"/>
-        <line num="217" count="1" type="stmt"/>
+        <line num="217" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.nav-component">
+      <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+      <file name="nav-component.js" path="C:\Users\osaucedz\OneDrive - NTT DATA EMEAL\Escritorio\NTTDATA\P001-CRUD-POKEMON\src\components\nav-component\nav-component.js">
+        <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="10" count="10" type="stmt"/>
+        <line num="11" count="10" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="39" count="3" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="50" count="3" type="stmt"/>
+        <line num="51" count="3" type="stmt"/>
+        <line num="52" count="3" type="stmt"/>
+        <line num="53" count="9" type="stmt"/>
+        <line num="56" count="3" type="stmt"/>
+        <line num="57" count="3" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.party-component">
+      <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <file name="party-component.js" path="C:\Users\osaucedz\OneDrive - NTT DATA EMEAL\Escritorio\NTTDATA\P001-CRUD-POKEMON\src\components\party-component\party-component.js">
+        <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="27" count="6" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.pokedex-component">
+      <metrics statements="29" coveredstatements="13" conditionals="4" coveredconditionals="3" methods="10" coveredmethods="4"/>
+      <file name="pokedex-component.js" path="C:\Users\osaucedz\OneDrive - NTT DATA EMEAL\Escritorio\NTTDATA\P001-CRUD-POKEMON\src\components\pokedex-component\pokedex-component.js">
+        <metrics statements="29" coveredstatements="13" conditionals="4" coveredconditionals="3" methods="10" coveredmethods="4"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="68" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="115" count="1" type="stmt"/>
+        <line num="122" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.css">
@@ -79,20 +264,26 @@
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
+    <package name="src.img">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="logo.png" path="C:\Users\osaucedz\OneDrive - NTT DATA EMEAL\Escritorio\NTTDATA\P001-CRUD-POKEMON\src\img\logo.png">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
     <package name="src.utils">
-      <metrics statements="17" coveredstatements="8" conditionals="8" coveredconditionals="1" methods="4" coveredmethods="1"/>
+      <metrics statements="17" coveredstatements="10" conditionals="8" coveredconditionals="2" methods="4" coveredmethods="3"/>
       <file name="common.js" path="C:\Users\osaucedz\OneDrive - NTT DATA EMEAL\Escritorio\NTTDATA\P001-CRUD-POKEMON\src\utils\common.js">
-        <metrics statements="17" coveredstatements="8" conditionals="8" coveredconditionals="1" methods="4" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="15" type="stmt"/>
-        <line num="5" count="15" type="cond" truecount="1" falsecount="1"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="109" count="1" type="stmt"/>
-        <line num="115" count="1" type="stmt"/>
+        <metrics statements="17" coveredstatements="10" conditionals="8" coveredconditionals="2" methods="4" coveredmethods="3"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="24" type="stmt"/>
+        <line num="5" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="109" count="3" type="stmt"/>
+        <line num="115" count="3" type="stmt"/>
         <line num="116" count="0" type="cond" truecount="0" falsecount="6"/>
         <line num="118" count="0" type="stmt"/>
         <line num="122" count="0" type="stmt"/>

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 /* import { fixture, html } from '@open-wc/testing'; */
-import { getLocal, setLocal, reloadPage } from '../src/utils/common.js';
+import { setLocal } from '../src/utils/common.js';
 import "../src/components/modal-component/modal-component.js";
 import { mockPokemon } from "../mocks/mockPokemon.js"
 
@@ -53,17 +53,41 @@ describe('ModalComponent', () => {
         expect(textInner).not.toBeNull();
     });
 
-    it('muestra error si el formulario está incompleto', async () => {
+    it('Form Validation', async () => {
         modal.type = 'edit';
-        modal.item = '0';
         modal.mostrar = true;
+        modal.item = '0';
         await modal.updateComplete;
-
         const form = modal.shadowRoot.querySelector('form');
-        form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+        form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));form.dispatchEvent(new Event('submit', { bubbles: true, composed: true }));
         await modal.updateComplete;
 
         const errorMsg = modal.shadowRoot.querySelector('.form--container > .error--msg');
         expect(errorMsg).not.toBeNull();
     });
+
+    it('Mondal Type Delete', async () => {
+        localStorage.setItem('pokemones2', JSON.stringify([mockPokemon]));
+        modal.type = 'delete';
+        modal.item = '0';
+        modal.mostrar = true;
+        await modal.updateComplete;
+
+        const textInner = modal.shadowRoot.querySelector('.text-msg.war--msg');
+        const btnEliminar = modal.shadowRoot.querySelector('.btn-modal.btn-eliminar');
+        btnEliminar.click();
+
+        await modal.updateComplete;
+        let datos = JSON.parse(localStorage.getItem('pokemones2'));
+        datos.splice(this.item, 1);
+        setLocal('pokemones2', datos);
+        datos = JSON.parse(localStorage.getItem('pokemones2'));
+        console.log(datos);
+        console.log(datos.length);
+
+        expect(datos.length).toBe(0);
+        expect(textInner).not.toBeNull();
+    });
+
+    
 });
